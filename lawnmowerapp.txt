@@ -1,0 +1,81 @@
+﻿controller .java
+﻿- main controller class
+﻿- handles any calls from the view or tablemodel and prepares them for the mysql class
+﻿- essentially the link between all the classes
+﻿- provides a layer of security so that any error checking can go there.
+﻿- has some functional methods that​help calculate the next date for service (for example)
+﻿- modifies return <span class="strike">​​ data from ResultSets from mysql and prepares them for the view to use.
+﻿- has some god methods for​ setting the date and <span class="strike">teh​​ the initial set of customers.
+﻿
+﻿mysqlaccess.java
+﻿- this​ this class handles all the calls directly to the database.
+﻿- sets​ up the connection to the database and manages first level errors (bad requests)
+﻿- also provides some error detection when pulling​ result sets apart but that mainly takes place in the controller.
+﻿- uses preformed sql statemtns to query and update the database.
+﻿- uses "mysql-connector-java" for connections
+﻿- layer of security by placing all sql​ statemtns here.
+﻿
+﻿ioclass.java
+﻿- simple class that prepares and creates documents (.txt) for monthly bills and​ weekly jobs for technicians.
+﻿
+﻿view.java
+﻿- main class taht is run to provide​ ui
+﻿- two tables,​ techns and customers.
+﻿- create a new customer
+﻿- create a new technicians
+﻿- can set the date
+﻿- has logic to commit changes to database
+﻿- refreshes due to​ tablemodel class
+﻿- provides ui​ to print out bills and jobs
+﻿- provides ui to check whether a client has paid or the job has been completed
+﻿
+﻿add.java
+﻿- create tech or customer based on boolean param
+﻿
+﻿lmtablemodel.java (inner class)
+﻿- extends tablemodel interface
+﻿- allows for the tech and customer tables to be updated and​ refreshed with the most​ latest commit.
+﻿
+﻿
+﻿THOUGHT PROCESS
+﻿- first time actually creating an app that relied on a database (not the first time​ working on one) so I tried to use what ive learned in the process
+﻿- since using java, went with class based​ separation
+﻿-​​ packages used to separate the ui and non ui classes
+﻿
+﻿TECHNOLOGIES
+﻿-​ main programming done in java (with java​ as the ui
+﻿- used mysql-connector-java library to establish and maintain connection
+﻿- mysql
+﻿- netbeans
+﻿- mysql workbench
+﻿​
+﻿TABLES
+﻿- two tables, technicians and customesr​
+﻿technicians
+﻿ - id
+﻿ - name first
+﻿ - name​ last
+﻿ - number of jobs
+﻿
+​
+﻿customers
+﻿ - id
+﻿ - name first
+﻿ - name last
+﻿ - address
+﻿ - originial signup date
+﻿ - service date
+﻿ - amount​ owes
+﻿ - technician id
+﻿ - paid
+﻿ - completed
+﻿
+﻿WHAT ID DO DIFFERENTLY
+﻿- make everything consistent, (object[] everywhere)(order of params)
+﻿- make better error handling
+﻿- create tech and customer class?
+﻿- deleting rows through​ ui
+﻿- create a​ standardization of sql statments
+﻿- ask more​ better questions during the sitdown period
+﻿- make sure that the code is easily adaptable and can be modfied in the future with ease should the client want to change something
+﻿
